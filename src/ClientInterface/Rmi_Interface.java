@@ -1,7 +1,7 @@
 package ClientInterface;
 
+
 import Server.Metrics;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.math.BigInteger;
 import java.rmi.Remote;
@@ -11,4 +11,5 @@ public interface Rmi_Interface extends Remote {
 
     Boolean contains(BigInteger n) throws RemoteException;
     Metrics getMetrics(BigInteger n) throws RemoteException;
+    String addToListThreads(String ipThread,BigInteger parameter)  throws RemoteException;
 }

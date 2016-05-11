@@ -9,12 +9,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface {
-    public StorageSystem() throws RemoteException {
+
+    public StorageSystem() throws RemoteException
+    {
+
     }
 
+    private HashMap<String, BigInteger>  threads = new HashMap<>();
     HashMap<BigInteger, Metrics> hashMap = new HashMap<>();
+
 
     public static void main (String argv[]) throws RemoteException
     {
@@ -36,6 +40,13 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
     public Boolean contains(BigInteger n)
     {
         return hashMap.containsKey(n);
+    }
+
+    public synchronized String addToListThreads(String ipThread, BigInteger parameter)
+    {
+        threads.put(ipThread, parameter);
+        System.err.println(threads.toString());
+        return "success!";
     }
 
     public Metrics getMetrics(BigInteger n)
