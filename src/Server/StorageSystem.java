@@ -28,7 +28,7 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
         System.out.println("Listening..");
     }
     @Override
-    public String addToList(int a) {
+    public synchronized String addToList(int a) {
         array.add(a);
         System.out.println(array.toString());
         return "success!";
