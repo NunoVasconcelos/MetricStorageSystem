@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +26,8 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
         try
         {
             StorageSystem obj = new StorageSystem();
-            LocateRegistry.createRegistry(1099);
-            Naming.rebind("rmi://localhost/Rmi", obj);
+            Registry reg = LocateRegistry.createRegistry(1099);
+            reg.bind("RmiServer/Grupo20", obj);
         }catch (Exception e)
         {
             System.err.println("StorageSystem Exception: "+e.toString());
@@ -54,6 +55,10 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
         return hashMap.get(n);
     }
 
-
+    public String sayHello()
+    {
+        System.out.println("Hello");
+        return "Hello";
+    }
 
 }

@@ -12,4 +12,5 @@ public interface Rmi_Interface extends Remote {
     Boolean contains(BigInteger n) throws RemoteException;
     Metrics getMetrics(BigInteger n) throws RemoteException;
     String addToListThreads(String ipThread,BigInteger parameter)  throws RemoteException;
+    String sayHello() throws RemoteException;
 }
