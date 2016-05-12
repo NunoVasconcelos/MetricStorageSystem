@@ -9,7 +9,8 @@ import java.rmi.RemoteException;
 
 public interface Rmi_Interface extends Remote {
 
-    Boolean contains(BigInteger n) throws RemoteException;
-    Metrics getMetrics(BigInteger n) throws RemoteException;
-    String addToListThreads(String ipThread,BigInteger parameter)  throws RemoteException;
+     Boolean contains(BigInteger n) throws RemoteException;
+     Metrics getMetrics(BigInteger n) throws RemoteException;
+     String addToListThreads(String ipThread,BigInteger parameter)  throws RemoteException;
+     String addToHashmap (String ipThread, Metrics metrics) throws RemoteException;
 }
