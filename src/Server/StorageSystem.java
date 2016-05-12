@@ -28,10 +28,8 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
         try
         {
             StorageSystem obj = new StorageSystem();
-//            System.setProperty("java.rmi.server.hostname", Inet4Address.getLocalHost().getHostAddress());
-            LocateRegistry.createRegistry(1099);
-            Naming.rebind("Grupo20", obj);
-//            reg.rebind("Grupo20",obj);
+            Registry reg = LocateRegistry.createRegistry(1099);
+            reg.bind("RmiServer/Grupo20", obj);
         }catch (Exception e)
         {
             System.err.println("StorageSystem Exception: "+e.toString());
@@ -65,6 +63,10 @@ public class StorageSystem extends UnicastRemoteObject implements Rmi_Interface 
         return hashMap.get(n);
     }
 
-
+    public String sayHello()
+    {
+        System.out.println("Hello");
+        return "Hello";
+    }
 
 }
