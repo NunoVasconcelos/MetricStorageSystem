@@ -3,7 +3,7 @@ package Server;
 
 import java.math.BigInteger;
 
-public class Metrics {
+public class Metrics implements java.io.Serializable{
     private BigInteger blockCount;
     private BigInteger instrCount;
     private BigInteger fieldLoad;
